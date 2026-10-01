@@ -33,11 +33,6 @@ const userInterface = {
         pensamentoAutoria.textContent = pensamento.autoria
         pensamentoAutoria.classList.add("pensamento-autoria")
 
-        li.appendChild(iconeAspas)
-        li.appendChild(pensamentoConteudo)
-        li.appendChild(pensamentoAutoria)
-        listaPensamentos.appendChild(li)
-    
         const botaoExcluir = document.createElement("button")
         botaoExcluir.classList.add("botao-excluir")
         botaoExcluir.onclick = async () => {
@@ -48,6 +43,22 @@ const userInterface = {
                 alert ("Erro ao excluir pensamento")
             }
         }
+
+        const iconeExcluir = document.createElement("img");
+        iconeExcluir.src = "assets/imagens/icone-excluir.png";
+        iconeExcluir.alt = "Icone Excluir";
+        botaoExcluir.appendChild(iconeExcluir);
+
+        const icones = document.createElement("div");
+        icones.classList.add("icones");
+        icones.appendChild(botaoExcluir);
+
+        li.appendChild(iconeAspas)
+        li.appendChild(pensamentoConteudo)
+        li.appendChild(pensamentoAutoria)
+        li.appendChild(icones);
+
+        listaPensamentos.appendChild(li);
         }
-}
+};
 export default userInterface;
